@@ -33,39 +33,39 @@ async def _human_time_duration(seconds):
 @Client.on_message(filters.command("start"))
 async def start(client, m: Message):
    if m.chat.type == 'private':
-      await m.reply(f"🥴 Hello there, I am a telegram video streaming bot.\n\n💭 I was created to stream videos in group video chats easily.\n\n❔.To find out how to use me, please press the help button below 👇🏻",
+      await m.reply(f"🥴 Salam, mən qruplarda səsli söhbət zamanı video, canlı yayın, film və s, izləmək üçün hazırlanmış botam.\n\n💭 Əmin olki istifadə etsən sevəcəksən.\n\n❔.Kömək üçün aşağıdakı butonlardan istifadə et 👇🏻",
                     reply_markup=InlineKeyboardMarkup(
                        [[
                           InlineKeyboardButton(
-                             "Add Me", url="https://t.me/{Zaid.BOT_USERNAME}?startgroup=true")
+                             "Əlavə et", url="https://t.me/{Zaid.BOT_USERNAME}?startgroup=true")
                        ],[
                           InlineKeyboardButton(
-                             "😈 ᴢᴀɪᴅ ᴏꜰꜰɪᴄɪᴀʟ ᴄʜᴀᴛ", url="https://t.me/zaid_team1")
+                             "😈 Sahiblə əlaqə", url="https://t.me/ABISHOV_27")
                        ],[
                           InlineKeyboardButton(
-                             "👀 ᴄᴍᴅꜱ ʟɪꜱᴛ", callback_data="cblist")
+                             "👀 Botun əmrləri", callback_data="cblist")
                        ],[
                           InlineKeyboardButton(
-                             "ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://github.com/Itsunknown-12/Zaid-Video-Player")
+                             "Qrupumuz", url="https://t.me/dark_sohbet")
                        ],[
                           InlineKeyboardButton(
-                             "ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url="https://t.me/Zaid_Support"),
+                             "Əlavələr", url="https://t.me/YusifinBiosu"),
                           InlineKeyboardButton(
-                             "🎑 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟꜱ", url="https://t.me/Zaid_Updates")
+                             "🎑 Developer", url="https://t.me/YusifinBiosu")
                        ]]
                     ))
    else:
-      await m.reply("**✨ BOT IS ONLINE... ✨**",
+      await m.reply("**✨ Bot işləyir qadanalım... ✨**",
                           reply_markup=InlineKeyboardMarkup(
                        [[
                           InlineKeyboardButton(
-                             "ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url="https://t.me/Zaid_Updates")
+                             "Qrupumuz", url="https://t.me/dark_sohbet")
                        ],[
                           InlineKeyboardButton(
-                             "🔥 ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://github.com/Itsunknown-12/Zaid-Video-Player")
+                             "🔥 Sahiblə əlaqə", url="https://t.me/ABISHOV_27")
                        ],[
                           InlineKeyboardButton(
-                             "📚 ʜᴇʟᴘ ᴀɴᴅ ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/Zaid_Support")
+                             "📚 Mənbə", url="https://t.me/YusifinBiosu")
                        ]]
                     )
                     )
@@ -76,15 +76,15 @@ async def alive(_, m: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await m.reply_text(
-        f"""✅ **Zaid is running**\n<b>💠 **uptime:**</b> `{uptime}`""",
+        f"""✅ **Bot işə salınır**\n<b>💠 **uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "✨ Group", url=f"https://t.me/Zaid_Support"
+                        "✨ Qrup", url=f"https://t.me/dark_sohbet"
                     ),
                     InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/Zaid_Uodates"
+                        "📣 Sahib", url=f"https://t.me/ABISHOV_27"
                     )
                 ]
             ]
@@ -110,7 +110,7 @@ async def get_uptime(_, m: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await m.reply_text(
-        "🤖 Zaid status 🤖\n\n"
+        "🤖 Bot statusu 🤖\n\n"
         f"• **uptime:** `{uptime}`\n"
         f"• **start time:** `{START_TIME_ISO}`"
     )
