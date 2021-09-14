@@ -7,7 +7,7 @@ from config import Zaid
 @Client.on_callback_query(filters.regex("help"))
 async def cbguide(_, query: CallbackQuery):
   await query.edit_message_text(
-    f"""❓ HOW TO USE THIS BOT:
+    f"""❓ Bot necə işləyir?:
 
 1.) first, add me to your group.
 2.) then promote me as admin and give all permissions except anonymous admin.
@@ -33,21 +33,21 @@ async def cbstart(_, query: CallbackQuery):
                                 reply_markup=InlineKeyboardMarkup(
                        [[
                           InlineKeyboardButton(
-                             "ᴄᴏᴍᴍᴀɴᴅꜱ ᴀɴᴅ ʜᴇʟᴘ", callback_data="help")
+                             "Qrupa Əlavə Et", callback_data="help")
                        ],[
                           InlineKeyboardButton(
-                             "😈 ᴢᴀɪᴅ ᴏꜰꜰɪᴄɪᴀʟ ᴄʜᴀᴛ", url="https://t.me/zaid_team1")
+                             "😈 Söhbət Qrupumuz", url="https://t.me/dark_sohbet")
                        ],[
                           InlineKeyboardButton(
-                             "👀 ᴄᴍᴅꜱ ʟɪꜱᴛ", callback_data="cblist")
+                             "👀 Botun əmrləri", callback_data="cblist")
                        ],[
                           InlineKeyboardButton(
-                             "ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://github.com/Itsunknown-12/Zaid-Video-Player")
+                             "Sahiblə əlaqə", url="https://t.me/ABISHOV_27")
                        ],[
                           InlineKeyboardButton(
-                             "ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url="https://t.me/Zaid_Support"),
+                             "Developer", url="https://t.me/YusifinBiosu"),
                           InlineKeyboardButton(
-                             "🎑 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟꜱ", url="https://t.me/Zaid_Updates")
+                             "🎑 Mənbə", url="https://t.me/YusifinBiosu")
                        ]]
                     ))
 
@@ -55,11 +55,11 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbinfo"))
 async def cbinfo(_, query: CallbackQuery):
   await query.edit_message_text(
-    f"""🌐 **bot information !**
+    f"""🌐 **bot haqqında !**
 
-😇 __This bot was created to stream video in telegram group video chats using several methods from Zweb Server.__
+😇 __Bot vasitəsilə Qruplarda Səsli Söhbət zamanı mahnını klipiylə bərabər izləyə, canlı yayımlar izləyə üstəlik filmlərədə baxa bilərsiniz.__
 
-💡 __Powered by PyTgcalls the Async client API for the Telegram Group Calls, and Pyrogram the telegram MTProto API Client Library and Framework in Pure Python for Users and Bots.__
+💡 __Xoş izləmələr, Xoş dinləmələr🤗❤.__
 
 
 __This bot licensed under GNU-GPL 3.0 License__""",
@@ -75,34 +75,34 @@ __This bot licensed under GNU-GPL 3.0 License__""",
 @Client.on_callback_query(filters.regex("cblist"))
 async def cblist(_, query: CallbackQuery):
   await query.edit_message_text(
-    f"""😏 ᴀʟʟ ᴄᴍᴅꜱ ʟɪꜱᴛ:
+    f"""😏 Botu işə salma qaydası:
 
-» /vplay (reply to video or yt/live url) - to stream video
-» /vstop - stop the video streaming
-» /song (song name) - download song from YT
-» /vsong (video name) - download video from YT
-» /vjoin - invite assistant join to your group
-» /vleave - order assistant leave from your group
+» /vplay (youtube linkinə yanıt verin yt link/canı yayın link url) - səslidə linkə yanıt verdiyiniz videonu, canlı yayımı , filmi və s. açar
+» /vstop - botu dayandırar
+» /song (mahnı adı) - istədiyiniz mahnını yükləyər
+» @vid (video adı) - axtardığınız videonun youtube linkini hazırlayar
+» /vjoin - asistantı qrupa dəvət edər
+» /vleave - asistantı qrupdan çıxarar
 
-🔰 EXTRA CMD:
+🔰 Əlavə əmrlər:
 
-» /tts (reply to text) - text to speech
-» /alive - check bot alive status
-» /ping - check bot ping status
-» /uptime - check bot uptime status
-» /stats - check bot system information
+» /tts (mətnə yanıt verin) - yanıt verdiyiniz mətni səsə çevirər
+» /alive - botun işləyib işləmədiyini yoxlayar
+» /ping - botun pingini ölçər
+» /uptime - botun işləmə vəziyyətini yoxlayar
+» /stats - botun sistem mılumatlarını yoxlayar
 
-💡 SUDO ONLY:
+💡 Sahib əmrləri:
 
-» /rmd - remove all downloaded files
-» /rmw - remove all downloaded raw files
-» /leaveall - order assistant leave from all group
+» /rmd - botla yüklənən bütün medianı silər
+» /rmw - yüklənən bütün raw fayllarını silər
+» /leaveall - asistantı bütün qrupçarfan çıxarar
 
-⚡ __ᴘᴀʀᴛ ᴏꜰ ᴢᴀɪᴅ ᴜᴘᴅᴀᴛᴇꜱ__""",
+⚡ __@ABISHOV_27 tərəfindən hazırlandı__""",
     reply_markup=InlineKeyboardMarkup(
       [[
         InlineKeyboardButton(
-          "ʙᴀᴄᴋ", callback_data="cbstart")
+          "Çıxış", callback_data="cbstart")
       ]]
     ))
 
