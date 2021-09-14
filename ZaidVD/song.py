@@ -27,7 +27,7 @@ def song(_, message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    m = message.reply("🔎 finding song...")
+    m = message.reply("🔎 mahnı axtarılır...")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -40,10 +40,10 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ song not found.\n\nplease give a valid song name.")
+        m.edit("❌ tapılmadı.\n\mahnı adını düzgün yazdığına əmin ol.")
         print(str(e))
         return
-    m.edit("📥 downloading...")
+    m.edit("📥 yüklənir...")
     try:
         with youtube_dl.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -64,7 +64,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ error, wait for dev to fix")
+        m.edit("❌ floodwait xətası")
         print(e)
 
     try:
@@ -273,15 +273,15 @@ async def vsong(_, message: Message):
             info_dict = ydl.extract_info(link, download=False)
             video_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        caption = f"🏷 Name: {title}\n💡 Views: `{views}`\n🎧 Request by: {message.from_user.mention()}\n\n⚡ " \
-                  f"__Powered by Zaid__ "
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🗑 Close", callback_data="cls")]])
-        await k.edit("📤 **uploading file...**")
+        caption = f"🏷 Adı: {title}\n💡 Baxış sayı: `{views}`\n🎧 İstəyən: {message.from_user.mention()}\n\n⚡ " \
+                  f"__Powered by @ABISHOV_27__ "
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🗑 Çıx", callback_data="cls")]])
+        await k.edit("📤 **fayl yüklənir...**")
         await message.reply_video(video_file, caption=caption, duration=duration, thumb=thumb_name,
                                   reply_markup=buttons, supports_streaming=True)
         await k.delete()
     except Exception as e:
-        await k.edit(f'❌ **something went wrong !** \n`{e}`')
+        await k.edit(f'❌ **bir şeylər səhv oldu !** \n`{e}`')
         pass
     try:
         os.remove(video_file)
