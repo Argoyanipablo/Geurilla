@@ -52,7 +52,7 @@ async def startvideo(client, m: Message):
     replied = m.reply_to_message
     if not replied:
         if len(m.command) < 2:
-            await m.reply("💡 reply to video or provide youtube/live video url to start video streaming")
+            await m.reply("💡 hər hansı bir youtubelinkinə yanıt verin.Link almaq üçün qrupda @vid video adı yazın")
         else:
             livelink = m.text.split(None, 1)[1]
             chat_id = m.chat.id
@@ -72,7 +72,7 @@ async def startvideo(client, m: Message):
                 return
             process = raw_converter(livelink, f'audio{chat_id}.raw', f'video{chat_id}.raw')
             FFMPEG_PROCESS[chat_id] = process
-            msg = await m.reply("🔁 **starting video streaming...**")
+            msg = await m.reply("🔁 **Səsli söhbətdə video başladılır...**")
             await asyncio.sleep(10)
             try:
                 audio_file = f'audio{chat_id}.raw'
@@ -98,16 +98,16 @@ async def startvideo(client, m: Message):
                     ),
                     stream_type=StreamType().local_stream,
                 )
-                await msg.edit("💡 **video streaming started!**\n\n» **join to video chat on the top to watch the video.**")
+                await msg.edit("💡 **video başladı!**\n\n» **izləmək üçün səsli söhbətə qoşulun.**")
                 await idle()
             except Exception as e:
-                await msg.edit(f"🚫 **error** | `{e}`")
+                await msg.edit(f"🚫 **xəta** | `{e}`")
    
     elif replied.video or replied.document:
-        msg = await m.reply("📥 downloading video...")
+        msg = await m.reply("📥 video yüklənir...")
         video = await client.download_media(m.reply_to_message)
         chat_id = m.chat.id
-        await msg.edit("🔁 **preparing...**")
+        await msg.edit("🔁 **hazırlanır...**")
         os.system(f"ffmpeg -i '{video}' -f s16le -ac 1 -ar 48000 'audio{chat_id}.raw' -y -f rawvideo -r 20 -pix_fmt yuv420p -vf scale=640:360 'video{chat_id}.raw' -y")
         try:
             audio_file = f'audio{chat_id}.raw'
@@ -133,12 +133,12 @@ async def startvideo(client, m: Message):
                 ),
                 stream_type=StreamType().local_stream,
             )
-            await msg.edit("💡 **video streaming started!**\n\n» **join to video chat on the top to watch the video.**")
+            await msg.edit("💡 **video başladıldı!**\n\n» **izləmək üçün səsli söhbətə qoşulun.**")
         except Exception as e:
             await msg.edit(f"🚫 **error** | `{e}`")
             await idle()
     else:
-        await m.reply("💭 please reply to video or video file to stream")
+        await m.reply("💭 hər hansı bir videoya və ya youtube video linkinə yanıt verin")
 
 
 @Client.on_message(command(["vstop", f"vstop@{Zaid.BOT_USERNAME}"]) & filters.group & ~filters.edited)
@@ -154,6 +154,6 @@ async def stopvideo(client, m: Message):
             except Exception as e:
                 print(e)
         await call_py.leave_group_call(chat_id)
-        await m.reply("✅ **successfully left vc !**")
+        await m.reply("✅ **səslidən uğurla ayrıldı!**")
     except Exception as e:
-        await m.reply(f"🚫 **error** | `{e}`")
+        await m.reply(f"🚫 **xəta** | `{e}`")
