@@ -19,7 +19,7 @@ async def entergroup(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>💡 promote me as admin first to do that !</b>",
+            "<b>💡 bunu etmək üçün əvvəlcə məni admin edin !</b>",
         )
         return
 
@@ -33,16 +33,16 @@ async def entergroup(client, message):
         await USER.send_message(message.chat.id, "🤖: i'm joined here for streaming video on video chat")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>✅ assistant already entered this group</b>",
+            "<b>✅ assistant artıq qrupunuzdadır</b>",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🔴 FLOODWAIT ERROR 🔴\n\n user {user.first_name} couldn't join your group due to heavy join requests for userbot! make sure assistant is not banned in this group."
+            f"<b>🔴 FLOODWAIT ERROR 🔴\n\n Hey {user.first_name} üzgünəm.Assistant qrupa qoşula bilmədi.Assistanın qrupdan ban edilmədiyinə əmin ol ."
         )
         return
     await message.reply_text(
-        "<b>✅ assistant userbot joined your chat</b>",
+        "<b>✅ assistant qrupa qoşuldu chat</b>",
     )
 
 
@@ -53,7 +53,7 @@ async def leavegroup(client, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            "<b>❌ assistant can't leave from group because floodwaits.\n\n» you can manually kick me from this group</b>"
+            "<b>❌ assistant qrupdan çıxa bilməz.\n\n» yalnızca qrup ayarlarından edə bilərsiz</b>"
         )
 
         return
@@ -66,14 +66,14 @@ async def outall(client, message):
 
     left=0
     failed=0
-    lol = await message.reply("🔁 assistant leaving all chats")
+    lol = await message.reply("🔁 assistant bütün qruplardan çıxdı")
     async for dialog in USER.iter_dialogs():
         try:
             await USER.leave_chat(dialog.chat.id)
             left += 1
-            await lol.edit(f"🔁 assistant leaving...\n⏳ Left: {left} chats.\n\n❌ Failed: {failed} chats.")
+            await lol.edit(f"🔁 assistant qrupdan çıxarılır...\n⏳ Təxmini: {left} gözlə.\n\n❌ Alınmadı: {failed} chats.")
         except:
             failed += 1
-            await lol.edit(f"🔁 assistant leaving...\n⏳ Left: {left} chats.\n\n❌ Failed: {failed} chats.")
+            await lol.edit(f"🔁 assistant qrupdan çıxarılır...\n⏳ Left: {left} chats.\n\n❌ Failed: {failed} chats.")
         await asyncio.sleep(0.7)
     await client.send_message(message.chat.id, f"✅ Left {left} chats.\n\n❌ Failed {failed} chats.")
