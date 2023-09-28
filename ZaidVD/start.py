@@ -33,25 +33,25 @@ async def _human_time_duration(seconds):
 @Client.on_message(filters.command("start"))
 async def start(client, m: Message):
    if m.chat.type == 'private':
-      await m.reply(f"🥴 Salam, mən qruplarda səsli söhbət zamanı video, canlı yayın, film və s, izləmək üçün hazırlanmış botam.\n\n💭 Əmin olki istifadə etsən sevəcəksən.\n\n❔.Kömək üçün aşağıdakı butonlardan istifadə et 👇🏻",
+      await m.reply(f"🥴 Merhaba ben gruplarınızda video izleme ve muzik dinleme botuyum.\n\n💭 Beni grubuna eklersen sevinirim .\n\n❔. komutlarımı assagidaki butondan öğrenebilirsiniz👇🏻",
                     reply_markup=InlineKeyboardMarkup(
                        [[
                           InlineKeyboardButton(
                              "Əlavə et", url="https://t.me/{Zaid.BOT_USERNAME}?startgroup=true")
                        ],[
                           InlineKeyboardButton(
-                             "😈 Sahiblə əlaqə", url="https://t.me/ABISHOV_27")
+                             "😈 Sahibim", url="https://t.me/Doguturkblogu")
                        ],[
                           InlineKeyboardButton(
                              "👀 Botun əmrləri", callback_data="cblist")
                        ],[
                           InlineKeyboardButton(
-                             "Qrupumuz", url="https://t.me/dark_sohbet")
+                             "Grubumuz 🇹🇷", url="https://t.me/kizilsancakglobal")
                        ],[
                           InlineKeyboardButton(
-                             "Əlavələr", url="https://t.me/YusifinBiosu"),
+                             "Reklam", url="https://t.me/Gstilki1453"),
                           InlineKeyboardButton(
-                             "🎑 Developer", url="https://t.me/YusifinBiosu")
+                             "🎑 Developer", url="https://t.me/adsizimlores")
                        ]]
                     ))
    else:
@@ -59,13 +59,13 @@ async def start(client, m: Message):
                           reply_markup=InlineKeyboardMarkup(
                        [[
                           InlineKeyboardButton(
-                             "Qrupumuz", url="https://t.me/dark_sohbet")
+                             "Qrupumuz", url="https://t.me/kizilsancakglobal")
                        ],[
                           InlineKeyboardButton(
-                             "🔥 Sahiblə əlaqə", url="https://t.me/ABISHOV_27")
+                             "🔥 Reklam", url="https://t.me/GsTilki1453")
                        ],[
                           InlineKeyboardButton(
-                             "📚 Mənbə", url="https://t.me/YusifinBiosu")
+                             "📚 DESTEK", url="https://t.me/kizilsancakglobal")
                        ]]
                     )
                     )
@@ -81,10 +81,10 @@ async def alive(_, m: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "✨ Qrup", url=f"https://t.me/dark_sohbet"
+                        "✨ Grup", url=f"https://t.me/kizilsancakglobal"
                     ),
                     InlineKeyboardButton(
-                        "📣 Sahib", url=f"https://t.me/ABISHOV_27"
+                        "📣 Sahib", url=f"https://t.me/Gstilki1453"
                     )
                 ]
             ]
