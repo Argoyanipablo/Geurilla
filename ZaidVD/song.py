@@ -259,7 +259,7 @@ async def vsong(_, message: Message):
             print(e)
             await k.edit(
                 '❌ **video not found, please give a valid video name.\n\n» if you think this is an error report to '
-                '@Zaid_Support**')
+                '@doguturkblogu**')
             return
     except Exception as e:
         await k.edit(
@@ -274,7 +274,7 @@ async def vsong(_, message: Message):
             video_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
         caption = f"🏷 Adı: {title}\n💡 Baxış sayı: `{views}`\n🎧 İstəyən: {message.from_user.mention()}\n\n⚡ " \
-                  f"__Powered by @ABISHOV_27__ "
+                  f"__Powered by @Gstilki1453__ "
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🗑 Çıx", callback_data="cls")]])
         await k.edit("📤 **fayl yüklənir...**")
         await message.reply_video(video_file, caption=caption, duration=duration, thumb=thumb_name,
